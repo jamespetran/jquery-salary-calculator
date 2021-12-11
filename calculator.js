@@ -129,7 +129,16 @@ function onSubmit(event) {
 
 function onDelete() {
     console.log('delete');
-
+    let c = $(this).parent().parent().attr('id');
+    console.log(c);
+    let row = c.substring(11); 
+    // extract the row number from the attr('id' string)
+    // by extracting part of the string that is after 'employeeRow' which is 11 characters long
+    // e.g. if attr('id') = employeeRow56, the logic above will result in row = 56
+    // this is to find the proper index value in the employeeList array
+    console.log(row);
+    employeeList[row].firstName = ''; 
+    refreshDOM(employeeList); //refresh DOM 
 }
 
 function refreshDOM(employees) {
@@ -137,20 +146,23 @@ function refreshDOM(employees) {
     let tb=$('tbody'); //selecting the tbody, only present in the employee table. if i had a tbody in the input table i would choose a more specific selector
     tb.children().remove(); //remove all the old data in table
     for (employee of employees) { // running through all the employees in the list
-        let employeeRowHTML =` 
-        <tr id="employeeRow${employee.row}">
-            <td>${employee.firstName}</td>
-            <td>${employee.lastName}</td>
-            <td>${employee.idNo}</td>
-            <td>${employee.jobTitle}</td>
-            <td>$${employee.salary}</td>
-            <td>
-                <button class="deleteBtn button">Delete</button>
-            </td>
-        </tr>
-        `; //the code to append each piece of data in a single row of the table
+        if (employee.firstName !== '') { //if employee.name is blank then skip appending it to DOM, working with delete logic above
+            let employeeRowHTML =` 
+            <tr id="employeeRow${employee.row}">
+                <td>${employee.firstName}</td>
+                <td>${employee.lastName}</td>
+                <td>${employee.idNo}</td>
+                <td>${employee.jobTitle}</td>
+                <td>$${employee.salary}</td>
+                <td>
+                    <button class="deleteBtn button">Delete</button>
+                </td>
+            </tr>
+            `; //the code to append each piece of data in a single row of the table
 
-        tb.append(employeeRowHTML); //appending this row to the DOM
+            tb.append(employeeRowHTML); //appending this row to the DOM
+        }
+        
     } //repeat until you've gone thru the whole employeeList, refeshing the table each time you add a new employee
 }
 
