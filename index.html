@@ -20,8 +20,10 @@
         to the total monthly cost-->
 
     <h1>Salary Calculator</h1>
-    <h2>Add Employee</h2>
-    <form id="inputs">
+    <br>
+    <h2>Add Employee Data</h2>
+    <br>
+    <form class="form" id="inputs">
         <label for="firstName" >First Name</label>
         <input 
             id="firstName"
@@ -55,6 +57,8 @@
             step="1"
             required
         />
+        <br>
+        <br>
         <input
             id="submit"
             type="submit"
@@ -63,7 +67,7 @@
         
     </form>
     <h2>Employees</h2>
-    <table>
+    <table class="table">
         <tr>
             <th>First Name</th>
             <th>Last Name</th>
@@ -77,11 +81,15 @@
             <td>Barber</td>
             <td>4521</td>
             <td>Team Lead</td>
-            <td>80000</td>
+            <td>$80000</td>
             <td>
                 <button class="deleteBtn">Delete</button>
             </td>
         </tr>
     </table>
+
+    <!-- bootstrap says add these here-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>

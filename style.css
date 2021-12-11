@@ -9,7 +9,19 @@ table {
     width: 50%;
     text-align: left;
 }
-th td {
-    border: black 2px;
+form {
+    margin: 0 auto;
+    width: auto;
+}
 
+h2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+h1 {
+    background-color: darkgray;
+    padding: 20px;
+}
+#submit {
+    margin-left: 70%;
 }
