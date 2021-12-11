@@ -63,26 +63,7 @@ function onReady() {
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Jen</td>
-                <td>Barber</td>
-                <td>4521</td>
-                <td>Team Lead</td>
-                <td>$80000</td>
-                <td>
-                    <button class="deleteBtn button">Delete</button>
-                </td>
-            </tr>
-            <tr>
-                <td>Jen</td>
-                <td>Barber</td>
-                <td>4521</td>
-                <td>Team Lead</td>
-                <td>$80000</td>
-                <td>
-                    <button class="deleteBtn button">Delete</button>
-                </td>
-            </tr>
+            
         </tbody>
     </table>
     <br>
@@ -162,7 +143,7 @@ function refreshDOM(employees) {
 
             tb.append(employeeRowHTML); //appending this row to the DOM
         }
-        
+
     } //repeat until you've gone thru the whole employeeList, refeshing the table each time you add a new employee
 }
 
