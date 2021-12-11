@@ -3,6 +3,7 @@ $(onReady);
 
 function onReady() {
     //blank html append here
+    {
     let titleHTML = `
     <h1>Salary Calculator</h1>
     <br>
@@ -28,7 +29,7 @@ function onReady() {
                 <td> <input id="lastName" type="text" required value="petran"/> </td>
                 <td> <input id="idNo" type="text" required value="1234"/> </td> 
                 <td> <input id="jobTitle" type="text" required value="cool guy"/> </td>
-                <td> <input id="salary" type="number" min="0" step="1" required value="3"/> </td>    
+                <td> <input id="salary" type="number" min="0" step="1" required value="36000"/> </td>    
             </tr>
             <tr>
                 <!-- submit button row -->
@@ -78,11 +79,12 @@ function onReady() {
     $('body').append(h2HTML);
     $('body').append(employeeTableHTML);
     $('body').append(monthlyCostHTML);
-
+    }
 
     //event handlers
     $('body').on('click','#submit', onSubmit);
     $('body').on('click','.deleteBtn', onDelete);
+    
 
     //onReady() finished
     console.log(`JQ`);
@@ -123,7 +125,8 @@ function onDelete() {
     // this is to find the proper index value in the employeeList array
     console.log(row);
     employeeList[row].firstName = ''; 
-
+    let cost = employeeList[row].monthlySalary;
+    monthlyCost -= cost;
     refreshDOM(employeeList); //refresh DOM 
 }
 
@@ -150,6 +153,14 @@ function refreshDOM(employees) {
         }
 
     } //repeat until you've gone thru the whole employeeList, refeshing the table each time you add a new employee
+    
+    //makes monthlyCost red if its more than 20k, removes the red if it ain't
+    if (monthlyCost > 20000) {
+        $('#monthlyCostDisp').addClass('red')
+    } else {
+        $('#monthlyCostDisp').removeClass('red')
+    } 
     $('#cost').text(monthlyCost); //update DOM with monthly cost value
 }
+
 

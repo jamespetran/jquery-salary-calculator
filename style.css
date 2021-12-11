@@ -52,3 +52,7 @@ h4 {
 td {
     width: 150px;
 }
+
+.red {
+    background-color: red;
+}
