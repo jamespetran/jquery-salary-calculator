@@ -88,7 +88,8 @@ function onReady() {
     console.log(`JQ`);
 }
 
-let employeeList= [];
+let employeeList= []; //master list of employees. has to be global to be accessible with all functions
+let monthlyCost=0; //master monthly cost. has to be global to be accessible with all functions
 
 function onSubmit(event) {
     event.preventDefault(); //stops page from reloading
@@ -100,11 +101,14 @@ function onSubmit(event) {
         idNo: $('#idNo').val(),
         jobTitle: $('#jobTitle').val(),
         salary: $('#salary').val(),
+        monthlySalary: Number($('#salary').val()/12), //annual salary divided by 12, not displayed in table but is used in DOM display
         row: employeeList.length //to track each object in the arrau: first employee is 0, second is 1 etc
     }
     console.log(employee); // log object
     employeeList.push(employee); // add employee object to employeeList array
     console.log(employeeList); // log employeeList array
+
+    monthlyCost += employee.monthlySalary; //add this employee's monthly salary to the budget
     refreshDOM(employeeList); //refresh DOM 
 }
 
@@ -119,6 +123,7 @@ function onDelete() {
     // this is to find the proper index value in the employeeList array
     console.log(row);
     employeeList[row].firstName = ''; 
+
     refreshDOM(employeeList); //refresh DOM 
 }
 
@@ -145,5 +150,6 @@ function refreshDOM(employees) {
         }
 
     } //repeat until you've gone thru the whole employeeList, refeshing the table each time you add a new employee
+    $('#cost').text(monthlyCost); //update DOM with monthly cost value
 }
 
