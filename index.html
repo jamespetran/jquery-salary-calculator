@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="jquery.js"></script>
     <script src="calculator.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <title>Salary Calculator</title>
 </head>
@@ -17,6 +18,70 @@
         and append information to DOM -->
     <!-- If total monthly costs exceed 20k add a red background
         to the total monthly cost-->
+
+    <h1>Salary Calculator</h1>
+    <h2>Add Employee</h2>
+    <form id="inputs">
+        <label for="firstName" >First Name</label>
+        <input 
+            id="firstName"
+            type="text"
+            required
+            autofocus
+        />
+        <label for="lastName">Last Name</label>
+        <input 
+            id="lastName"
+            type="text"
+            required
+        />
+        <label for="idNo">ID Number</label>
+        <input 
+            id="idNo"
+            type="text"
+            required
+        />
+        <label for="jobTitle">Job Title</label>
+        <input 
+            id="jobTitle"
+            type="text"
+            required
+        />
+        <label for="salary">Annual Salary</label>
+        <input 
+            id="salary"
+            type="number"
+            min="0"
+            step="1"
+            required
+        />
+        <input
+            id="submit"
+            type="submit"
+            value="Submit"
+        />
         
+    </form>
+    <h2>Employees</h2>
+    <table>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>ID</th>
+            <th>Job Title</th>
+            <th>Annual Salary</th>
+            <th></th>
+        </tr>
+        <tr>
+            <td>Jen</td>
+            <td>Barber</td>
+            <td>4521</td>
+            <td>Team Lead</td>
+            <td>80000</td>
+            <td>
+                <button class="deleteBtn">Delete</button>
+            </td>
+        </tr>
+    </table>
 </body>
 </html>

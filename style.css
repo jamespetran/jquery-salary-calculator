@@ -1,0 +1,15 @@
+body {
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+}
+table {
+    margin: 0 auto;
+    max-width: 80%;
+    width: 50%;
+    text-align: left;
+}
+th td {
+    border: black 2px;
+
+}
