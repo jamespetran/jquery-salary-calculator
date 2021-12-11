@@ -11,7 +11,7 @@ function onReady() {
     `
 
     let inputFormHTML = `
-    <form class="form" id="form">
+    <form class="form" id="inputForm">
     <table>
         <thead>
             <tr> 
@@ -39,7 +39,7 @@ function onReady() {
                 <td></td>
                 <!-- submit button -->
                 <td>
-                    <input id="submit" type="submit" value="Submit" />
+                    <input class="button" id="submit" type="submit" value="Submit" />
                 </td>
             </tr>
         </thead>
@@ -70,7 +70,7 @@ function onReady() {
                 <td>Team Lead</td>
                 <td>$80000</td>
                 <td>
-                    <button class="deleteBtn">Delete</button>
+                    <button class="deleteBtn button">Delete</button>
                 </td>
             </tr>
             <tr>
@@ -80,7 +80,7 @@ function onReady() {
                 <td>Team Lead</td>
                 <td>$80000</td>
                 <td>
-                    <button class="deleteBtn">Delete</button>
+                    <button class="deleteBtn button">Delete</button>
                 </td>
             </tr>
         </tbody>
@@ -89,7 +89,7 @@ function onReady() {
     `
     let monthlyCostHTML = `
     <h4 id="monthlyCostDisp">
-        <p>Total Monthly Cost: $ <span id="cost">0</span></p>
+        <p>Total Monthly Cost: $<span id="cost">0</span></p>
     </h4>
     `
     $('body').append(titleHTML);
@@ -100,7 +100,24 @@ function onReady() {
 
 
     //event handlers
+    $(document).on('click','#submit', onSubmit);
+    $(document).on('click','.deleteBtn', onDelete);
 
     //onReady() finished
     console.log(`JQ`);
 }
+
+let employeeList= [];
+
+function onSubmit() {
+    console.log('submit');
+}
+
+function onDelete() {
+    console.log('delete');
+
+}
+
+
+
+console.log(`js2`);
