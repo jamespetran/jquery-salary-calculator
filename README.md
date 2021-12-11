@@ -15,7 +15,7 @@ jQuery Salary Calculator
 
 - The bottom of the page features a monthly cost counter. Keep in mind that the salary entered in is the annual amount, so a bit of calculation must be done to determine the monthly amount. If this monthly amount goes over $20,000 it turns red. When the monthly amount goes under 20k, it stops being red.
 
-## Techicals
+## Tenchical Details
 
 - This code runs in javascript and is entirely clientside. It is a simple proof of concept, so no data is stored on any servers or anything. It will not keep its data if the page is reloaded.
 
