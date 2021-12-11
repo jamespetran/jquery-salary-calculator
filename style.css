@@ -3,12 +3,15 @@ body {
     margin: 0 auto;
     display: block;
 }
+
 table {
     margin: 0 auto;
-    max-width: 80%;
-    width: 50%;
+    /* max-width: 80%; */
+    width: 60%;
     text-align: left;
 }
+
+
 form {
     margin: 0 auto;
     width: auto;
@@ -18,10 +21,18 @@ h2 {
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
 h1 {
     background-color: darkgray;
     padding: 20px;
 }
+
 #submit {
-    margin-left: 70%;
+    display: block;
+    margin: auto;
+    margin-top: 15px;
+}
+
+.table-striped {
+    width: 60%;
 }

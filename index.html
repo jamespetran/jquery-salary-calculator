@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- jQuery src -->
     <script src="jquery.js"></script>
+    <!-- JS src -->
     <script src="calculator.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- bootstrap src -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- my own css src -->
     <link rel="stylesheet" href="style.css">
+
     <title>Salary Calculator</title>
 </head>
+
 <body>
+    <!-- Instructions: -->
     <!-- input  forms for employee first name, 
         last name, ID no, job title and annual salary-->
     <!-- submit button that collects form collection, 
@@ -23,73 +33,90 @@
     <br>
     <h2>Add Employee Data</h2>
     <br>
-    <form class="form" id="inputs">
-        <label for="firstName" >First Name</label>
-        <input 
-            id="firstName"
-            type="text"
-            required
-            autofocus
-        />
-        <label for="lastName">Last Name</label>
-        <input 
-            id="lastName"
-            type="text"
-            required
-        />
-        <label for="idNo">ID Number</label>
-        <input 
-            id="idNo"
-            type="text"
-            required
-        />
-        <label for="jobTitle">Job Title</label>
-        <input 
-            id="jobTitle"
-            type="text"
-            required
-        />
-        <label for="salary">Annual Salary</label>
-        <input 
-            id="salary"
-            type="number"
-            min="0"
-            step="1"
-            required
-        />
-        <br>
-        <br>
-        <input
-            id="submit"
-            type="submit"
-            value="Submit"
-        />
-        
+    <form class="form" id="form">
+        <table>
+            <thead>
+                <tr> 
+                    <!-- labels for the inputs -->
+                    <td> <label class="label" for="firstName">First Name</label> </td>
+                    <td> <label class="label" for="lastName">Last Name</label> </td>
+                    <td> <label class="label" for="idNo">ID Number</label> </td>
+                    <td> <label class="label" for="jobTitle">Job Title</label> </td>
+                    <td> <label class="label" for="salary">Annual Salary</label> </td>
+                </tr>
+                <tr>
+                    <!-- input boxes -->
+                    <td> <input id="firstName" type="text" required autofocus /> </td>
+                    <td> <input id="lastName" type="text" required /> </td>
+                    <td> <input id="idNo" type="text" required /> </td> 
+                    <td> <input id="jobTitle" type="text" required /> </td>
+                    <td> <input id="salary" type="number" min="0" step="1" required /> </td>    
+                </tr>
+                <tr>
+                    <!-- submit button row -->
+                    <!-- blank tds to indent submit button -->
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <!-- submit button -->
+                    <td>
+                        <input id="submit" type="submit" value="Submit" />
+                    </td>
+                </tr>
+            </thead>
+        </table>
     </form>
-    <h2>Employees</h2>
-    <table class="table">
-        <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>ID</th>
-            <th>Job Title</th>
-            <th>Annual Salary</th>
-            <th></th>
-        </tr>
-        <tr>
-            <td>Jen</td>
-            <td>Barber</td>
-            <td>4521</td>
-            <td>Team Lead</td>
-            <td>$80000</td>
-            <td>
-                <button class="deleteBtn">Delete</button>
-            </td>
-        </tr>
-    </table>
 
-    <!-- bootstrap says add these here-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <h2>Employees</h2>
+
+    <!-- employees table list -->
+    <table class="table-striped">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>ID</th>
+                <th>Job Title</th>
+                <th>Annual Salary</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Jen</td>
+                <td>Barber</td>
+                <td>4521</td>
+                <td>Team Lead</td>
+                <td>$80000</td>
+                <td>
+                    <button class="deleteBtn">Delete</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Jen</td>
+                <td>Barber</td>
+                <td>4521</td>
+                <td>Team Lead</td>
+                <td>$80000</td>
+                <td>
+                    <button class="deleteBtn">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <h4 id="monthlyCostDisp">
+        <p>Total Monthly Cost: $ <span id="cost">${Cost}</span></p>
+    </h4>
+
+    <!-- bootstrap says to add these here to make it work better -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
