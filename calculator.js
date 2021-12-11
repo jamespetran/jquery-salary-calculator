@@ -24,11 +24,11 @@ function onReady() {
             </tr>
             <tr>
                 <!-- input boxes -->
-                <td> <input id="firstName" type="text" required autofocus /> </td>
-                <td> <input id="lastName" type="text" required /> </td>
-                <td> <input id="idNo" type="text" required /> </td> 
-                <td> <input id="jobTitle" type="text" required /> </td>
-                <td> <input id="salary" type="number" min="0" step="1" required /> </td>    
+                <td> <input id="firstName" type="text" required autofocus value="james"/> </td>
+                <td> <input id="lastName" type="text" required value="petran"/> </td>
+                <td> <input id="idNo" type="text" required value="1234"/> </td> 
+                <td> <input id="jobTitle" type="text" required value="cool guy"/> </td>
+                <td> <input id="salary" type="number" min="0" step="1" required value="3"/> </td>    
             </tr>
             <tr>
                 <!-- submit button row -->
@@ -100,8 +100,8 @@ function onReady() {
 
 
     //event handlers
-    $(document).on('click','#submit', onSubmit);
-    $(document).on('click','.deleteBtn', onDelete);
+    $('body').on('click','#submit', onSubmit);
+    $('body').on('click','.deleteBtn', onDelete);
 
     //onReady() finished
     console.log(`JQ`);
@@ -109,8 +109,22 @@ function onReady() {
 
 let employeeList= [];
 
-function onSubmit() {
-    console.log('submit');
+function onSubmit(event) {
+    event.preventDefault(); //stops page from reloading
+    console.log('submit'); //logs that we are in submit function
+
+    let employee = {
+        firstName: $('#firstName').val(),
+        lastName: $('#lastName').val(),
+        idNo: $('#idNo').val(),
+        jobTitle: $('#jobTitle').val(),
+        salary: $('#salary').val(),
+        row: employeeList.length //to track each object in the arrau: first employee is 0, second is 1 etc
+    }
+    console.log(employee); // log object
+    employeeList.push(employee); // add employee object to employeeList array
+    console.log(employeeList); // log employeeList array
+    refreshDOM(employeeList); //refresh DOM 
 }
 
 function onDelete() {
@@ -118,6 +132,25 @@ function onDelete() {
 
 }
 
+function refreshDOM(employees) {
+    console.log('refreshing dom'); //logging that I am in the function
+    let tb=$('tbody'); //selecting the tbody, only present in the employee table. if i had a tbody in the input table i would choose a more specific selector
+    tb.children().remove(); //remove all the old data in table
+    for (employee of employees) { // running through all the employees in the list
+        let employeeRowHTML =` 
+        <tr id="employeeRow${employee.row}">
+            <td>${employee.firstName}</td>
+            <td>${employee.lastName}</td>
+            <td>${employee.idNo}</td>
+            <td>${employee.jobTitle}</td>
+            <td>$${employee.salary}</td>
+            <td>
+                <button class="deleteBtn button">Delete</button>
+            </td>
+        </tr>
+        `; //the code to append each piece of data in a single row of the table
 
+        tb.append(employeeRowHTML); //appending this row to the DOM
+    } //repeat until you've gone thru the whole employeeList, refeshing the table each time you add a new employee
+}
 
-console.log(`js2`);
