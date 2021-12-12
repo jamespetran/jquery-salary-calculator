@@ -29,7 +29,7 @@ function onReady() {
                 <td> <input id="lastName" type="text" required value="petran"/> </td>
                 <td> <input id="idNo" type="text" required value="1234"/> </td> 
                 <td> <input id="jobTitle" type="text" required value="cool guy"/> </td>
-                <td> <input id="salary" type="number" min="0" step="1" required value="36000"/> </td>    
+                <td> <input id="salary" type="number" min="0" step="0.01" required value="36000"/> </td>    
             </tr>
             <tr>
                 <!-- submit button row -->
