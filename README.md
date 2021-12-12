@@ -21,7 +21,7 @@ jQuery Salary Calculator
 
 - I used jQuery to make the changes to the DOM and to give functionality to the inputs and buttons. I have used bootstrap to style the page a bit better than an ugly html mess.
 
-- All javascript was written by me. I got a little bit of css styling from stackoverflow to make my footer stick to the bottom, and I linked the source in the css file.
+- (almost) All javascript was written by me. I got a little bit of css styling from stackoverflow to make my footer stick to the bottom, and I linked the source in the css file. I also got a solution for a bug with rounding the monthly cost to the nearest 0.01 from a stackoverflow page, linked in my main javascript file.
 
 ## About Me
 
