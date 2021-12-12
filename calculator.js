@@ -161,6 +161,15 @@ function refreshDOM(employees) {
     } else {
         $('#monthlyCostDisp').removeClass('red')
     } 
+
+    //sometimes the monthly cost has too many decimal points! We only need 2 decimal places please
+
+    monthlyCost = Math.round(monthlyCost * 100) / 100;
+    //this logic moves the decimal point 2 places to the right, rounds the number
+    //to the nearest integer, and then moves the decimal point back.
+    //this is from the following stackoverflow link:
+    //  https://stackoverflow.com/a/11832950
+
     $('#cost').text(monthlyCost); //update DOM with monthly cost value
 }
 
