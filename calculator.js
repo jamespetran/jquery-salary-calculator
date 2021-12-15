@@ -23,7 +23,7 @@ function onReady() {
                 <td> <label class="label" for="jobTitle">Job Title</label> </td>
                 <td> <label class="label" for="salary">Annual Salary</label> </td>
             </tr>
-            <tr>
+            <tr id="inputSection">
                 <!-- input boxes -->
                 <td> <input id="firstName" type="text" required autofocus value="james"/> </td>
                 <td> <input id="lastName" type="text" required value="petran"/> </td>
@@ -107,6 +107,7 @@ function onSubmit(event) {
         monthlySalary: Number($('#salary').val()/12), //annual salary divided by 12, not displayed in table but is used in DOM display
         row: employeeList.length //to track each object in the arrau: first employee is 0, second is 1 etc
     }
+    $('#inputSection input').val(''); // clears the input boxes
     console.log(employee); // log object
     employeeList.push(employee); // add employee object to employeeList array
     console.log(employeeList); // log employeeList array
