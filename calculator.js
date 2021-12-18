@@ -79,7 +79,7 @@ function onReady() {
     $('body').append(h2HTML);
     $('body').append(employeeTableHTML);
     $('body').append(monthlyCostHTML);
-    $('body').append(`<footer class="footer">the source code for this website can be found <a href="https://github.com/jpetran2/jquery-salary-calculator">here</a></footer>`);
+    $('body').append(`<footer class="footer">the source code for this website can be found <a href="https://github.com/jamespetran/jquery-salary-calculator">here</a></footer>`);
         }
 
     //event handlers
